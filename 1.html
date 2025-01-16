@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px; /* Add padding to prevent cards from touching screen edges */
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slightly enlarge card on hover for desktop */
+}
+
+.card img {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1;
+  position: relative;
+}
+
+.card-title {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.card-description {
+  font-size: 16px;
+  color: #666;
+  margin: 10px 0;
+  max-height: 6.6em; /* 4 lines height */
+  overflow: hidden;
+  line-height: 1.65em;
+  position: relative;
+}
+
+.card-description.expanded {
+  max-height: none;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+}
+
+.read-more:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+      flex-direction: column; /* Stack image and content vertically */
+      text-align: center; /* Center text and button */
+  }
+
+  .card img {
+      width: 100%; /* Full width image on mobile */
+  }
+
+  .card-content {
+      padding: 15px;
+  }
+
+  .card-title {
+      font-size: 20px; /* Slightly smaller title font for mobile */
+  }
+
+  .card-description {
+      font-size: 14px; /* Slightly smaller description font for mobile */
+      max-height: 7.8em; /* Adjust max height if needed */
+  }
+
+  .read-more {
+      position: static; /* Remove absolute positioning */
+      margin-top: 10px; /* Add some space above the button */
+  }
+}
